@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 
 # Load provided dataset
-df = pd.read_csv("/mnt/data/Lipstick.csv")
+df = pd.read_csv("Lipstick.csv")
 
 # Prepare data
 df2 = df.drop(columns=["Id"])
