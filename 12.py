@@ -1,3 +1,8 @@
+# 12.Use Iris flower dataset and perform following :
+# 1. Create a box plot for each feature in the dataset.
+# 2. Identify and discuss distributions and identify outliers from them
+
+
 import pandas as pd
 import matplotlib.pyplot as plt
 

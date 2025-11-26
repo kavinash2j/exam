@@ -1,3 +1,10 @@
+# 11. Use Iris flower dataset and perform following :
+# 1. List down the features and their types (e.g., numeric, nominal)
+# available in the dataset. 2. Create a histogram for each feature in the
+# dataset to illustrate the feature distributions.
+
+
+
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris

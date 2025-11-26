@@ -1,3 +1,9 @@
+# 17. Compute Accuracy, Error rate, Precision, Recall for following confusion
+# matrix ( Use formula for each)
+# True Positives (TPs): 1 False Positives (FPs): 1
+# False Negatives (FNs): 8 True Negatives (TNs): 90
+
+
 # Given values
 TP = 1
 FP = 1

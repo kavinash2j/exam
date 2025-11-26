@@ -1,3 +1,8 @@
+# Perform the following operations using Python on the data set
+# House_Price Prediction dataset. Compute standard deviation, variance and
+# percentiles using separate commands, for each feature. Create a histogram
+# for each feature in the dataset to illustrate the feature distributions.
+
 import pandas as pd
 import matplotlib.pyplot as plt
 

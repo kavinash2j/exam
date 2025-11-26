@@ -1,3 +1,11 @@
+#  Write a program to do: A dataset collected in a cosmetics shop showing
+# details of customers and whether or not they responded to a special offer
+# to buy a new lip-stick is shown in table below. (Implement step by step
+# using commands - Dont use library) Use this dataset to build a decision
+# tree, with Buys as the target variable, to help in buying lipsticks in the
+# future. Find the root node of the decision tree
+
+
 # ID3-style information gain calculation WITHOUT external libraries
 # - Reads dataset from "Lipstick.csv" (must be in same folder)
 # - Assumes last column is the target "Buys" (or uses header name)

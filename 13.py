@@ -1,3 +1,11 @@
+# 13. Use the covid_vaccine_statewise.csv dataset and perform the following
+# analytics.
+# a. Describe the dataset
+# b. Number of persons state wise vaccinated for first dose in India
+# c. Number of persons state wise vaccinated for second dose in India
+
+
+
 import pandas as pd
 
 # Load dataset

@@ -1,3 +1,12 @@
+# Write a program to do the following: You have given a collection of 8
+# points. P1=[2, 10] P2=[2, 5] P3=[8, 4] P4=[5, 8] P5=[7,5] P6=[6, 4] P7=[1, 2]
+# P8=[4, 9]. Perform the k-mean clustering with initial centroids as m1=P1
+# =Cluster#1=C1 and m2=P4=cluster#2=C2, m3=P7 =Cluster#3=C3. Answer
+# the following 1] Which cluster does P6 belong to? 2] What is the
+# population of a cluster around m3? 3] What is the updated value of m1,
+# m2, m3
+
+
 import math
 
 # Points

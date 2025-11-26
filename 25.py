@@ -1,3 +1,6 @@
+#  Perform Data Cleaning, Data transformation using Python on any data
+# set.
+
 # Titanic: Data Cleaning & Transformation (ready-to-run)
 # - Loads "Titanic.csv" from current folder
 # - Performs typical cleaning steps and feature engineering

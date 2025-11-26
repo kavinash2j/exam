@@ -1,3 +1,15 @@
+# Compute Accuracy, Error rate, Precision, Recall for the following
+# confusion matrix.
+# Actual Class\Predicted
+# class
+# cancer =
+# yes
+# cancer = no Total
+# cancer = yes 90 210 300
+# cancer = no 140 9560 9700
+# Total 230 9770 10000
+
+
 TP = 90
 FN = 210
 FP = 140

@@ -1,3 +1,10 @@
+# With reference to Table , obtain the Frequency table for the
+# attribute age. From the frequency table you have obtained, calculate the
+# information gain of the frequency table while splitting on Age. (Use step
+# by step Python/Pandas commands)
+
+
+
 import pandas as pd
 import math
 

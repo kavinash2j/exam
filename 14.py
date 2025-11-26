@@ -1,3 +1,9 @@
+# 4. Use the covid_vaccine_statewise.csv dataset and perform the following
+# analytics.
+# A. Describe the dataset.
+# B. Number of Males vaccinated
+# C.. Number of females vaccinated
+
 import pandas as pd
 
 # Load the dataset

@@ -1,3 +1,9 @@
+# Write a Python program to display some basic statistical details like
+# percentile, mean, standard deviation etc (Use python and pandas
+# commands) the species of ‘Iris-setosa’, ‘Iris-versicolor’ and ‘Iris-versicolor’
+# of iris.csv dataset.
+
+
 import pandas as pd
 
 # Load iris dataset
