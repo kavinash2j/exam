@@ -5,58 +5,86 @@
 # final cluster means for each of the clusters
 
 
+# ---------------------------------------------------------
+# K-MEANS CLUSTERING on IRIS DATASET (EASY VERSION)
+# K = 3, Euclidean distance, 10 iterations
+# ---------------------------------------------------------
+
 import numpy as np
 import pandas as pd
 
-# Load the dataset (numeric columns only)
+# ---------------------------------------------------------
+# 1. LOAD IRIS DATASET (ONLY NUMERIC COLUMNS)
+# ---------------------------------------------------------
 df = pd.read_csv("IRIS.csv")
 
-# Select numeric feature columns
-features = ["sepal_length", "sepal_width", "petal_length", "petal_width"]
-X = df[features].values.astype(float)
+# We pick 4 numeric features
+X = df[["sepal_length", "sepal_width", "petal_length", "petal_width"]].values
 
-# Parameters
+# Number of clusters
 k = 3
+
+# Total number of iterations
 iterations = 10
-random_seed = 42
 
-rng = np.random.default_rng(random_seed)
-n_samples = X.shape[0]
+# ---------------------------------------------------------
+# 2. RANDOMLY PICK 3 POINTS AS INITIAL CENTROIDS
+# ---------------------------------------------------------
+np.random.seed(42)               # for same result every run
+n = X.shape[0]                   # total rows in dataset
+idx = np.random.choice(n, k, replace=False)   # choose 3 random indices
 
-# Initialize centroids by picking k random points
-initial_idx = rng.choice(n_samples, size=k, replace=False)
-centroids = X[initial_idx].copy()
+centroids = X[idx].copy()        # initial centroids
 
-print("Initial centroids:")
+print("Initial Centroids:")
 for i, c in enumerate(centroids, start=1):
-    print(f" m{i} = {np.round(c, 5)}")
+    print(f"m{i} =", c)
 print()
 
-# K-means main loop
+# ---------------------------------------------------------
+# 3. FUNCTION TO CALCULATE EUCLIDEAN DISTANCE
+# ---------------------------------------------------------
+def euclidean(a, b):
+    return np.sqrt(np.sum((a - b) ** 2))
+
+# ---------------------------------------------------------
+# 4. MAIN K-MEANS LOOP (RUN 10 ITERATIONS)
+# ---------------------------------------------------------
 for it in range(1, iterations + 1):
 
-    # Compute Euclidean distances to each centroid
-    dists = np.sum((X[:, np.newaxis, :] - centroids[np.newaxis, :, :]) ** 2, axis=2)
+    # Step A: Assign each point to nearest centroid
+    labels = []          # will store cluster number for each point
 
-    # Assign each point to nearest centroid
-    labels = np.argmin(dists, axis=1)
+    for p in X:
+        # compute distance of this point to m1, m2, m3
+        dists = [euclidean(p, c) for c in centroids]
+        # choose nearest centroid index
+        labels.append(np.argmin(dists))
 
-    # Recompute centroids
-    new_centroids = np.zeros_like(centroids)
+    labels = np.array(labels)
+
+    # Step B: Recompute centroids as mean of points inside each cluster
+    new_centroids = []
+
     for j in range(k):
-        members = X[labels == j]
-        if len(members) == 0:
-            new_centroids[j] = X[rng.integers(0, n_samples)]   # reassign empty cluster
+        cluster_points = X[labels == j]   # all points assigned to cluster j
+
+        if len(cluster_points) == 0:
+            # if a cluster becomes empty, reassign randomly
+            new_centroids.append(X[np.random.randint(0, n)])
         else:
-            new_centroids[j] = members.mean(axis=0)
+            # average of all points in this cluster → new centroid
+            new_centroids.append(cluster_points.mean(axis=0))
 
-    centroids = new_centroids
+    centroids = np.array(new_centroids)
 
-    # Show cluster sizes during training
-    cluster_sizes = [int((labels == j).sum()) for j in range(k)]
-    print(f"Iteration {it:2d} → Cluster sizes: {cluster_sizes}")
+    # Show cluster sizes for each iteration
+    sizes = [np.sum(labels == j) for j in range(k)]
+    print(f"Iteration {it} - Cluster sizes:", sizes)
 
-# Final results
-print("\nFinal centroids after 10 iterations:")
+# ---------------------------------------------------------
+# 5. PRINT FINAL CLUSTER MEANS
+# ---------------------------------------------------------
+print("\nFinal Centroids After 10 Iterations:")
 for i, c in enumerate(centroids, start=1):
-    print(f" m{i} = {np.round(c, 5)}")
+    print(f"m{i} =", np.round(c, 4))

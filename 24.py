@@ -1,3 +1,8 @@
+# Perform the following operations using Python on a suitable data set,
+# counting unique values of data, format of each column, converting variable
+# data type (e.g. from long to short, vice versa), identifying missing values
+# and filling in the missing values.
+
 # Simple Titanic: inspect types, uniques, convert types, find & fill missing values
 import pandas as pd                     # data handling
 import numpy as np                      # numerical helpers
