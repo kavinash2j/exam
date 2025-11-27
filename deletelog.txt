@@ -1,0 +1,21 @@
+sudo bash -c '
+# Clear systemd journal logs
+journalctl --rotate
+journalctl --vacuum-time=1s
+
+# Clear dmesg buffer
+dmesg -c >/dev/null
+
+# Clear common log files
+truncate -s 0 /var/log/syslog 2>/dev/null
+truncate -s 0 /var/log/kern.log 2>/dev/null
+truncate -s 0 /var/log/messages 2>/dev/null
+truncate -s 0 /var/log/auth.log 2>/dev/null
+truncate -s 0 /var/log/secure 2>/dev/null
+
+# Clear audit logs
+truncate -s 0 /var/log/audit/audit.log 2>/dev/null
+
+# Clear udev logs
+rm -f /var/log/udev* 2>/dev/null
+'
